@@ -57,7 +57,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 			SmartObjectToString();
 			turnOnLight();
 			turnOffLight();
-			System.out.println("Test completed for SmartLight");
+			System.out.println("Test completed for SmartLight\n");
 			return true;
 		}
 		else {
@@ -167,18 +167,22 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
          //according to the programAction and programTime, the lights will be turned on/off.       
 		if(getConnectionStatus()) {
 			if(programAction == true) {
-				if(programTime.equals(Calendar.getInstance()) ) {
-					System.out.println("RunProgram -> SmartLight - "+ getAlias());
-					if(hasLightTurned == true) {
-						turnOffLight();
-						programTime = null;
-					}
-					else {
-						turnOnLight();
-						programTime = null;
+				if(programTime != null){
+					if(programTime.get(Calendar.HOUR_OF_DAY) == Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+					&& programTime.get(Calendar.MINUTE) == Calendar.getInstance().get(Calendar.MINUTE)
+					&& programTime.get(Calendar.SECOND) == Calendar.getInstance().get(Calendar.SECOND)) {
+						System.out.println("RunProgram -> SmartLight - " + getAlias());
+						if(hasLightTurned == true) {
+							turnOffLight();
+							programTime = null;
+						}
+						else {
+							turnOnLight();
+							programTime = null;
+						}
 					}
 				}
-				}
+			}
 			
 		}
 		else {

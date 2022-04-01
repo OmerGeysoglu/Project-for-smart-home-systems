@@ -96,12 +96,13 @@ public class SmartHome {
 		System.out.println("Programmable : runProgram");
 		System.out.println("--------------------------------------------------------------------------");
 		for(int i = 0; i < smartObjects.size(); i++) {
+            if(smartObjects.get(i) instanceof SmartPlug) {
+				((SmartPlug)(smartObjects.get(i))).runProgram();
+			}
 			if(smartObjects.get(i) instanceof SmartLight) {
 				((SmartLight)(smartObjects.get(i))).runProgram();
 			}
-			if(smartObjects.get(i) instanceof SmartPlug) {
-				((SmartPlug)(smartObjects.get(i))).runProgram();
-			}
+			
 		}
 		
 	}
@@ -138,15 +139,16 @@ public class SmartHome {
         */
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------");
-		System.out.println("Programmable : 0, 5 or 10 seconds randomly");
+		System.out.println("Programmable: Timer= 5 or 10 seconds randomly");
 		System.out.println("--------------------------------------------------------------------------");
+        int number = 0;
 		for(int i = 0; i < smartObjects.size(); i++) {
+            // get random number from 0 to 2
+            // 0 for 0
+            // 1 for 5
+            // 2 for 10
+            number = ((int)(Math.random()*3)); 
 			if(smartObjects.get(i) instanceof SmartLight) {
-                // get random number from 0 to 2
-                // 0 for 0
-                // 1 for 5
-                // 2 for 10
-				int number = ((int)Math.random())+2; 
 				if(number == 0) {
 					System.out.println(smartObjects.get(i).getAlias() + " 's cancelTimer method is invoked");
 					((SmartLight)(smartObjects.get(i))).cancelTimer();
@@ -161,11 +163,6 @@ public class SmartHome {
 				}
 			}
 			if(smartObjects.get(i) instanceof SmartPlug) {
-                // get random number from 0 to 2
-                // 0 for 0
-                // 1 for 5
-                // 2 for 10
-				int number = ((int)Math.random())+2;
 				if(number == 0) {
 					System.out.println(smartObjects.get(i).getAlias() + "'s cancelTimer method is invoked");
 					((SmartPlug)(smartObjects.get(i))).cancelTimer();
@@ -175,7 +172,7 @@ public class SmartHome {
 					((SmartPlug)(smartObjects.get(i))).setTimer(number);
 				}
 				else {
-					number = 5;
+					number = 10;
 				    ((SmartPlug)(smartObjects.get(i))).setTimer(number);
 				}
 			}

@@ -58,7 +58,7 @@ public class SmartPlug extends SmartObject implements Programmable {
 			SmartObjectToString();
 			turnOn();
 			turnOff();
-			System.out.println("Test Completed for smartPlug.");
+			System.out.println("Test Completed for smartPlug\n");
 			return true;
 		}
 		else {
@@ -132,15 +132,19 @@ public class SmartPlug extends SmartObject implements Programmable {
         //according to the programAction and programTime, the plugs will be turned on/off.       
 		if(super.getConnectionStatus()) {
 			if(programAction == true) {
-				if(programTime.equals(Calendar.getInstance())) {
-					System.out.println("RunProgram -> SmartPlug - "+ getAlias());
-					if(status == true) {
-						turnOff();
-						programTime = null;
-					}
-					else {
-						turnOn();
-						programTime = null;
+				if(programTime != null){
+					if(programTime.get(Calendar.HOUR_OF_DAY) == Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+					&& programTime.get(Calendar.MINUTE) == Calendar.getInstance().get(Calendar.MINUTE)
+					&& programTime.get(Calendar.SECOND) == Calendar.getInstance().get(Calendar.SECOND)) {
+						System.out.println("RunProgram -> SmartPlug - "+ getAlias());
+						if(status == true) {
+							turnOff();
+							programTime = null;
+						}
+						else {
+							turnOn();
+							programTime = null;
+						}
 					}
 				}
 			}

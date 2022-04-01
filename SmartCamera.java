@@ -81,7 +81,7 @@ public class SmartCamera extends SmartObject implements MotionControl, Comparabl
 			recordOff();
 			recordOn(false);
 			recordOff();
-			System.out.println("Test completed for SmartCamera.");
+			System.out.println("Test completed for SmartCamera.\n");
 			return true;
 		}
 		else {
