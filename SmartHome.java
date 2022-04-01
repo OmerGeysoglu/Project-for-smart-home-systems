@@ -55,7 +55,7 @@ public class SmartHome {
         */
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------");
-		System.out.println("LocationControl : OnCome");
+		System.out.println("LocationControl: OnCome");
 		System.out.println("--------------------------------------------------------------------------");
 		
 		for(int i = 0 ; i < smartObjects.size(); i++) {
@@ -77,7 +77,7 @@ public class SmartHome {
         */
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------");
-		System.out.println("MotionControl : HasMotion , isDay");
+		System.out.println("MotionControl: HasMotion , isDay");
 		System.out.println("--------------------------------------------------------------------------");
 		
 		for(int i = 0; i < smartObjects.size(); i++) {
@@ -93,7 +93,7 @@ public class SmartHome {
         */
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------");
-		System.out.println("Programmable : runProgram");
+		System.out.println("Programmable: runProgram");
 		System.out.println("--------------------------------------------------------------------------");
 		for(int i = 0; i < smartObjects.size(); i++) {
             if(smartObjects.get(i) instanceof SmartPlug) {
@@ -139,7 +139,7 @@ public class SmartHome {
         */
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("--------------------------------------------------------------------------");
-		System.out.println("Programmable: Timer= 5 or 10 seconds randomly");
+		System.out.println("Programmable: Timer = 5 or 10 seconds randomly");
 		System.out.println("--------------------------------------------------------------------------");
         int number = 0;
 		for(int i = 0; i < smartObjects.size(); i++) {

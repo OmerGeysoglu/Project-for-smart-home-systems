@@ -92,7 +92,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 		if(getConnectionStatus()) {
 			hasLightTurned = false;
 			System.out.println("On Leave -> SmartLight - " + getAlias());
-            System.out.println("SmartLight - " + getAlias() + " is turned off now (Current Time : " 
+            System.out.println("SmartLight - " + getAlias() + " is turned off now (Current Time: " 
             + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + 
             + Calendar.getInstance().get(Calendar.MINUTE) + ":" +
             + Calendar.getInstance().get(Calendar.SECOND)+  ")");
@@ -110,7 +110,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 		if(getConnectionStatus()) {
 			hasLightTurned = true;
 			System.out.println("On Come -> SmartLight - " + getAlias());
-			System.out.println("SmartLight - " + getAlias() + " is turned on now (Current Time : " 
+			System.out.println("SmartLight - " + getAlias() + " is turned on now (Current Time: " 
                 + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + 
                 + Calendar.getInstance().get(Calendar.MINUTE) + ":" +
                 + Calendar.getInstance().get(Calendar.SECOND)+  ")");
@@ -129,7 +129,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 			programAction = true;
 			if(hasLightTurned == true) {
 				System.out.println("SmartLight - " + getAlias() + " will be turned off " +seconds + " seconds later!"
-                    + "(Current Time : " + programTime.get(Calendar.HOUR_OF_DAY) + ":" 
+                    + "(Current Time: " + programTime.get(Calendar.HOUR_OF_DAY) + ":" 
 					+ Calendar.getInstance().get(Calendar.MINUTE) + ":"
 					+ Calendar.getInstance().get(Calendar.SECOND) + ")");
 				
@@ -137,7 +137,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 			}
 			else {
 				System.out.println("SmartLight - " + getAlias() + " will be turned on " +seconds + " seconds later!"
-                    + "(Current Time : " + programTime.get(Calendar.HOUR_OF_DAY) + ":" 
+                    + "(Current Time: " + programTime.get(Calendar.HOUR_OF_DAY) + ":" 
 					+ Calendar.getInstance().get(Calendar.MINUTE) + ":"
 					+ Calendar.getInstance().get(Calendar.SECOND) + ")");
 					

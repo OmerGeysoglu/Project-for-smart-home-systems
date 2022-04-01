@@ -17,7 +17,7 @@ public class SmartPlug extends SmartObject implements Programmable {
 		if(super.getConnectionStatus()) {
 			if(status == false) {
 				status = true;
-				System.out.println("Smart Plug - " + getAlias() + " is turned on now (Current Time : " 
+				System.out.println("Smart Plug - " + getAlias() + " is turned on now (Current Time: " 
                     + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" 
 					+ Calendar.getInstance().get(Calendar.MINUTE) + ":" 
 					+ Calendar.getInstance().get(Calendar.SECOND) +")");
@@ -36,7 +36,7 @@ public class SmartPlug extends SmartObject implements Programmable {
 		if(super.getConnectionStatus()) {
 			if(status == true) {
 				status = false;
-				System.out.println("Smart Plug - " + getAlias() + " is turned off now (Current Time : " 
+				System.out.println("Smart Plug - " + getAlias() + " is turned off now (Current Time: " 
                     + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" 
 					+ Calendar.getInstance().get(Calendar.MINUTE) + ":" 
 					+ Calendar.getInstance().get(Calendar.SECOND) +")");
@@ -95,14 +95,14 @@ public class SmartPlug extends SmartObject implements Programmable {
 			programTime.add(Calendar.SECOND, seconds);
 			programAction = true;
 			if(status == true) {
-				System.out.println("Smart Plug - " + getAlias() + " will be turned off " +seconds + " seconds later! (Current Time : " 
+				System.out.println("Smart Plug - " + getAlias() + " will be turned off " +seconds + " seconds later! (Current Time: " 
                     + programTime.get(Calendar.HOUR_OF_DAY) + ":" + 
 					+ Calendar.getInstance().get(Calendar.MINUTE) + ":" +
 					+ Calendar.getInstance().get(Calendar.SECOND) + ")" );
 				
 			}
 			else {
-				System.out.println("Smart Plug - " + getAlias() + " will be turned on " + seconds + " seconds later! (Current Time : " 
+				System.out.println("Smart Plug - " + getAlias() + " will be turned on " + seconds + " seconds later! (Current Time: " 
                     + programTime.get(Calendar.HOUR_OF_DAY) + ":" + 
 					+ Calendar.getInstance().get(Calendar.MINUTE) + ":" +
 					+ Calendar.getInstance().get(Calendar.SECOND) + ")");

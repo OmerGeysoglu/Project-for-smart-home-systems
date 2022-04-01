@@ -1,6 +1,6 @@
 
 public interface MotionControl {
 	
-	public void controlMotion(boolean hasMotion , boolean isDay);
+	public boolean controlMotion(boolean hasMotion , boolean isDay);
 
 }

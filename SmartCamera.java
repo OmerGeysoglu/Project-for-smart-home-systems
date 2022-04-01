@@ -109,7 +109,7 @@ public class SmartCamera extends SmartObject implements MotionControl, Comparabl
 	}
 
     @Override
-	public void controlMotion(boolean hasMotion, boolean isDay) {
+	public boolean controlMotion(boolean hasMotion, boolean isDay) {
         /*
         checks the motion and starts recording according to hasMotion
         */
@@ -123,14 +123,17 @@ public class SmartCamera extends SmartObject implements MotionControl, Comparabl
 		if(isDay == true) {
 			status = true;
 			System.out.println("Smart Camera - " + getAlias() + " is turned on now.");
+			return true;
 		}
 		else {
 			if(nightVision == true) {
 				status = true;
 				System.out.println("Smart Camera - " + getAlias() + " is turned on now.");
+				return true;
 			}
 			else{
 				status = false;
+				return false;
 			}
 		}
 		
