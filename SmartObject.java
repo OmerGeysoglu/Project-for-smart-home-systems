@@ -85,7 +85,7 @@ public abstract class SmartObject {
 		IP = iP;
 	}
 
-	public boolean isConnectionStatus() {
+	public boolean getConnectionStatus() {
 		return connectionStatus;
 	}
 

@@ -14,7 +14,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	
 	public void turnOnLight() {
         // turns on the light if there is an internet connection and the light is off
-		if(isConnectionStatus() == true) {
+		if(getConnectionStatus() == true) {
 			if(hasLightTurned == false) {
 				hasLightTurned = true;
 				System.out.println("SmartLight - " + getAlias() + " is turned on now (Current Time: " 
@@ -33,7 +33,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	
 	public void turnOffLight() {
         // turns off the light if there is an internet connection and the light is on
-		if(isConnectionStatus()) {
+		if(getConnectionStatus()) {
 			if(hasLightTurned == true) {
 				hasLightTurned = false;
 				System.out.println("SmartLight - " + getAlias() + " is turned off now (Current Time: " 
@@ -51,8 +51,8 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	
 	@Override
 	public boolean testObject() {
-        //tests object if there is an internet connection to check whether there is a problem
-		if(isConnectionStatus()) {
+        //tests lights if there is an internet connection to check whether there is a problem
+		if(getConnectionStatus()) {
 			System.out.println("Test is starting for SmartLight");   
 			SmartObjectToString();
 			turnOnLight();
@@ -69,7 +69,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	@Override
 	public boolean shutDownObject() {
         //Turns off the light if there is an internet connection.
-		if(isConnectionStatus()) {
+		if(getConnectionStatus()) {
 			if(hasLightTurned == true) {
 				hasLightTurned = false;
 				SmartObjectToString();
@@ -89,7 +89,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
     @Override
 	public void onLeave() {
         //turns off the lights when people leave the house
-		if(isConnectionStatus()) {
+		if(getConnectionStatus()) {
 			hasLightTurned = false;
 			System.out.println("On Leave -> SmartLight - " + getAlias());
             System.out.println("SmartLight - " + getAlias() + " is turned off now (Current Time : " 
@@ -107,7 +107,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	@Override
 	public void onCome() {
         //turns on the lights when people come the house
-		if(isConnectionStatus()) {
+		if(getConnectionStatus()) {
 			hasLightTurned = true;
 			System.out.println("On Come -> SmartLight - " + getAlias());
 			System.out.println("SmartLight - " + getAlias() + " is turned on now (Current Time : " 
@@ -123,7 +123,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	@Override
 	public void setTimer(int seconds) {
         //sets timer to turn on/off the lights.
-		if(isConnectionStatus()) {
+		if(getConnectionStatus()) {
 			programTime = Calendar.getInstance();
 			programTime.add(Calendar.SECOND, seconds);
 			programAction = true;
@@ -152,7 +152,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	@Override
 	public void cancelTimer() {
         //cancel the timer.     
-		if(isConnectionStatus()) {
+		if(getConnectionStatus()) {
 			programTime = null;
 			programAction = false;
 		}
@@ -165,7 +165,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 	@Override
 	public void runProgram() {
          //according to the programAction and programTime, the lights will be turned on/off.       
-		if(isConnectionStatus()) {
+		if(getConnectionStatus()) {
 			if(programAction == true) {
 				if(programTime.equals(Calendar.getInstance()) ) {
 					System.out.println("RunProgram -> SmartLight - "+ getAlias());
