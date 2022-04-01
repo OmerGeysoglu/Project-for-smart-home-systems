@@ -189,7 +189,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 
 	
 
-	public boolean isHasLightTurned() {
+	public boolean getHasLightTurned() {
 		return hasLightTurned;
 	}
 
@@ -205,7 +205,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 		this.programTime = programTime;
 	}
 
-	public boolean isProgramAction() {
+	public boolean getProgramAction() {
 		return programAction;
 	}
 
