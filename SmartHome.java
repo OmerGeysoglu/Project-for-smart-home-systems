@@ -57,7 +57,7 @@ public class SmartHome {
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("LocationControl: OnCome");
 		System.out.println("--------------------------------------------------------------------------");
-		
+		/*
 		for(int i = 0 ; i < smartObjects.size(); i++) {
 			if(smartObjects.get(i) instanceof SmartLight) {
 				if(onCome == true) {
@@ -65,6 +65,16 @@ public class SmartHome {
 				}
 				else {
 					((SmartLight)smartObjects.get(i)).onLeave();
+				}
+			}
+		}*/
+		for(SmartObject so: smartObjects ) {
+			if(so instanceof SmartLight) {
+				if(onCome == true) {
+					((SmartLight) so).onCome();
+				}
+				else {
+					((SmartLight)so).onLeave();
 				}
 			}
 		}
@@ -80,9 +90,14 @@ public class SmartHome {
 		System.out.println("MotionControl: HasMotion , isDay");
 		System.out.println("--------------------------------------------------------------------------");
 		
-		for(int i = 0; i < smartObjects.size(); i++) {
+		/*for(int i = 0; i < smartObjects.size(); i++) {
 			if(smartObjects.get(i) instanceof SmartCamera) {
 				((SmartCamera)(smartObjects.get(i))).controlMotion(hasMotion, isDay);
+			}
+		}*/
+		for(SmartObject so: smartObjects ) {
+			if(so instanceof SmartCamera) {
+				((SmartCamera)(so)).controlMotion(hasMotion, isDay);
 			}
 		}
 	}
@@ -95,12 +110,12 @@ public class SmartHome {
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println("Programmable: runProgram");
 		System.out.println("--------------------------------------------------------------------------");
-		for(int i = 0; i < smartObjects.size(); i++) {
-            if(smartObjects.get(i) instanceof SmartPlug) {
-				((SmartPlug)(smartObjects.get(i))).runProgram();
+		for(SmartObject so: smartObjects ) {
+            if(so instanceof SmartPlug) {
+				((SmartPlug)(so)).runProgram();
 			}
-			if(smartObjects.get(i) instanceof SmartLight) {
-				((SmartLight)(smartObjects.get(i))).runProgram();
+			if(so instanceof SmartLight) {
+				((SmartLight)(so)).runProgram();
 			}
 			
 		}
@@ -111,21 +126,21 @@ public class SmartHome {
         /*
         iterates smartObjects and invokes setTimer and cancelTimer methods for objects implementing Programmable interface 
         */
-		for(int i = 0; i < smartObjects.size(); i++) {
-			if(smartObjects.get(i) instanceof SmartLight) {
+		for(SmartObject so: smartObjects ) {
+			if(so instanceof SmartLight) {
 				if(seconds > 0) {
-				((SmartLight)(smartObjects.get(i))).setTimer(seconds);
+				((SmartLight)(so)).setTimer(seconds);
 				}
 				else if(seconds == 0){
-					((SmartLight)(smartObjects.get(i))).cancelTimer();
+					((SmartLight)(so)).cancelTimer();
 				}
 			}
-			if(smartObjects.get(i) instanceof SmartPlug) {
+			if(so instanceof SmartPlug) {
 				if(seconds > 0) {
-				((SmartPlug)(smartObjects.get(i))).setTimer(seconds);
+				((SmartPlug)(so)).setTimer(seconds);
 				}
 				else if(seconds == 0) {
-					((SmartPlug)(smartObjects.get(i))).cancelTimer();
+					((SmartPlug)(so)).cancelTimer();
 				}
 			}
 		}
@@ -142,38 +157,38 @@ public class SmartHome {
 		System.out.println("Programmable: Timer = 5 or 10 seconds randomly");
 		System.out.println("--------------------------------------------------------------------------");
         int number = 0;
-		for(int i = 0; i < smartObjects.size(); i++) {
+		for(SmartObject so: smartObjects ) {
             // get random number from 0 to 2
             // 0 for 0
             // 1 for 5
             // 2 for 10
             number = ((int)(Math.random()*3)); 
-			if(smartObjects.get(i) instanceof SmartLight) {
+			if(so instanceof SmartLight) {
 				if(number == 0) {
-					System.out.println(smartObjects.get(i).getAlias() + " 's cancelTimer method is invoked");
-					((SmartLight)(smartObjects.get(i))).cancelTimer();
+					System.out.println(so.getAlias() + " 's cancelTimer method is invoked");
+					((SmartLight)(so)).cancelTimer();
 				}
 				else if(number==1) {
 					number = 5;
-					((SmartLight)(smartObjects.get(i))).setTimer(number);
+					((SmartLight)(so)).setTimer(number);
 				}
 				else {
 					number = 10;
-				    ((SmartLight)(smartObjects.get(i))).setTimer(number);
+				    ((SmartLight)(so)).setTimer(number);
 				}
 			}
-			if(smartObjects.get(i) instanceof SmartPlug) {
+			if(so instanceof SmartPlug) {
 				if(number == 0) {
-					System.out.println(smartObjects.get(i).getAlias() + "'s cancelTimer method is invoked");
-					((SmartPlug)(smartObjects.get(i))).cancelTimer();
+					System.out.println(so.getAlias() + "'s cancelTimer method is invoked");
+					((SmartPlug)(so)).cancelTimer();
 				}
 				else if(number==1) {
 					number = 5;
-					((SmartPlug)(smartObjects.get(i))).setTimer(number);
+					((SmartPlug)(so)).setTimer(number);
 				}
 				else {
 					number = 10;
-				    ((SmartPlug)(smartObjects.get(i))).setTimer(number);
+				    ((SmartPlug)(so)).setTimer(number);
 				}
 			}
 		}
@@ -189,9 +204,9 @@ public class SmartHome {
 		System.out.println("Sort Smart Cameras");
 		System.out.println("--------------------------------------------------------------------------");
         ArrayList<SmartCamera> smartCameras = new ArrayList<SmartCamera>();
-        for(int i = 0 ; i < smartObjects.size(); i++) {
-			if(smartObjects.get(i) instanceof SmartCamera) {
-				smartCameras.add((SmartCamera)smartObjects.get(i));
+        for(SmartObject so: smartObjects ) {
+			if(so instanceof SmartCamera) {
+				smartCameras.add((SmartCamera)so);
 			}
 		}
         SmartCamera[] smartCamerasArray = new SmartCamera[smartCameras.size()];
