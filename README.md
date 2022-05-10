@@ -1,2 +1,2 @@
-# 150120060_HW2
+# Smart Home
  A smart-home structure
