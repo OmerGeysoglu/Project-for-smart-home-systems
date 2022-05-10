@@ -11,7 +11,7 @@ public class SmartLight extends SmartObject implements LocationControl, Programm
 		super.setAlias(alias);
 		super.setMacId(macId);
 	}
-	
+
 	public void turnOnLight() {
         // turns on the light if there is an internet connection and the light is off
 		if(getConnectionStatus() == true) {

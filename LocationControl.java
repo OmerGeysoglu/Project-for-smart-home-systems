@@ -1,3 +1,4 @@
+
 public interface LocationControl {
 	
 	public void onLeave();

@@ -12,6 +12,7 @@ public class SmartCamera extends SmartObject implements MotionControl, Comparabl
 		this.nightVision = nightVision;
 		this.batteryLife = batteryLife;
 	}
+	 
 	
 	public void recordOn(boolean isDay) {
         /*

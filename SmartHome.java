@@ -193,7 +193,7 @@ public class SmartHome {
 			}
 		}
 	}
-	
+	 
 	public void sortCameras() {  
         /*
         iterates smartObjects for objects implementing Comparable interface

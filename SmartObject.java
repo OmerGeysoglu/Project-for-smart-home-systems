@@ -39,6 +39,7 @@ public abstract class SmartObject {
 		}
 	}
 	
+	
 	public void SmartObjectToString() {
         // print the smart object
 		System.out.println("This is " + getClass().getSimpleName() +" device " + alias); 

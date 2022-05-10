@@ -1,4 +1,3 @@
-
 public interface Programmable {
 	
 	public void setTimer(int seconds);

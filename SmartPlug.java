@@ -114,6 +114,7 @@ public class SmartPlug extends SmartObject implements Programmable {
 		
 	}
 
+	
 	@Override
 	public void cancelTimer() {  
         // cancel the timer. 
